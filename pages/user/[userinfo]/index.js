@@ -16,6 +16,7 @@ export default () => {
       >
         Open user settings
       </button>
+      <button onClick={() => router.replace('/')}>Go to home</button>
     </>
   );
 };
