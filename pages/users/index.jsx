@@ -1,16 +1,9 @@
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { fetcher } from './[id]';
+import useSWR from 'swr';
 
 export default () => {
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    async function fetchingUsers() {
-      const data = await fetch('https://dummyjson.com/users');
-      setUser(await data.json());
-    }
-    fetchingUsers();
-  }, []);
+  const { data: user, error } = useSWR('https://dummyjson.com/users', fetcher);
 
   return (
     <>
