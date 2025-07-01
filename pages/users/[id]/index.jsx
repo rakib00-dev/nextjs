@@ -6,7 +6,7 @@ export const fetcher = (...args) => {
   return fetch(...args).then((r) => r.json());
 };
 
-export default () => {
+const Users = () => {
   const router = useRouter();
   const [id, setId] = useState(0);
 
@@ -29,3 +29,5 @@ export default () => {
     </>
   );
 };
+
+export default Users;

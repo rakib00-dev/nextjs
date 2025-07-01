@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { fetcher } from './[id]';
 import useSWR from 'swr';
 
-export default () => {
+const PagesUser = () => {
   const { data: user, error } = useSWR('https://dummyjson.com/users', fetcher);
 
   return (
@@ -16,3 +16,5 @@ export default () => {
     </>
   );
 };
+
+export default PagesUser;
