@@ -1,15 +1,18 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
+  const session = useSession();
+  console.log(session);
+
+  if (session.data === null) {
+    return <button onClick={() => signIn()}>Login</button>;
+  }
+
   return (
     <div className={styles.container}>
-      <Image
-        src={'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg'}
-        width={1000}
-        height={400}
-      />
+      <h1>Auth</h1>
+      <button onClick={signOut}>Log out</button>
     </div>
   );
 }
